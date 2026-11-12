@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>लेखा-जोखा Pro — Privacy Policy</title>
+<style>
+:root { --bg: #f3f4fa; --card: #ffffff; --ink: #1c2240; --muted: #5c6382; --rule: #e2e5f0; --accent: #2b2f86; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --bg: #11132a; --card: #1a1d38; --ink: #e8eaf7; --muted: #a2a7c6; --rule: #2c3054; --accent: #a3afff; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Noto Sans Devanagari", "Nirmala UI", "Mukta", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.65; }
+main { max-width: 720px; margin: 0 auto; padding: 32px 16px 56px; display: flex; flex-direction: column; gap: 20px; }
+header h1 { margin: 0; font-size: 30px; line-height: 1.25; color: var(--accent); text-wrap: balance; }
+header p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+section { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 20px 20px 8px; }
+h2 { margin: 0 0 8px; font-size: 21px; }
+h3 { margin: 18px 0 4px; font-size: 17px; }
+p, li { margin: 0 0 12px; }
+ul { padding-left: 22px; margin: 0 0 12px; }
+.lead { font-weight: 600; }
+a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p style="margin:0 0 8px;font-size:15px"><a href="../">← KStats Lab</a></p>
+    <h1>लेखा-जोखा Pro — Privacy Policy</h1>
+    <p>लागू: 2 नवंबर 2026 (version 3.0) · Effective: 2 November 2026 (version 3.0) · App: लेखा-जोखा Pro (Lekha Jokha Pro), package io.github.kapilstats.gharkahisaab · KStats Lab · मुफ़्त / free</p>
+  </header>
+
+  <section lang="hi">
+    <h2>हिंदी</h2>
+    <p class="lead">लेखा-जोखा Pro आपकी कोई भी जानकारी इकट्ठा नहीं करता। Live साझा चालू करने पर ही आपका हिसाब, phone पर ताले में बंद (end-to-end encrypted) होकर, सिर्फ़ उन लोगों तक जाता है जिन्हें आप जोड़ते हैं। Developer या बीच का server उसे पढ़ नहीं सकते।</p>
+    <h3>आपका data कहाँ रहता है</h3>
+    <p>आप जो खर्च, बजट, आमदनी, परिवार के सदस्यों के नाम, कामवाली/ड्राइवर के नाम और हाज़िरी, राशन की सूची, उधार, बचत लक्ष्य, नकद और विवरण लिखते हैं, वे आपके phone में, इस app की निजी storage में रखे जाते हैं। यह app internet सिर्फ़ दो कामों के लिए इस्तेमाल करता है: <b>Live साझा हिसाब</b> और आपके अपने <b>Google Drive में backup</b> (दोनों नीचे देखें), और दोनों तभी जब आप उन्हें चालू करें। दोनों बंद हों तो app कुछ भी बाहर नहीं भेजता।</p>
+    <h3>Live साझा हिसाब</h3>
+    <ul>
+      <li><b>क्या जाता है:</b> जब आप साझा हिसाब शुरू करते हैं या किसी के code से जुड़ते हैं, तो आपके खर्च, हटाए गए खर्च, घर के सदस्यों के नाम, अपनी श्रेणियाँ और आपका दिखने वाला नाम (ताकि हर खर्च के साथ दिखे कि किसने लिखा) उस साझा हिसाब के बाकी लोगों के phones तक जाते हैं। साथ में साझा करने वालों के नाम और उनके रिश्ते/अनुमति भी, जो आप लिखते या चुनते हैं।</li>
+      <li><b>Encryption:</b> यह सब आपके phone पर ही AES-256-GCM से ताले में बंद होता है। चाबी सिर्फ़ उस साझा हिसाब के phones के पास होती है, और नए व्यक्ति को उसके phone के लिए अलग से बंद करके दी जाती है (ECDH)। किसी को हटाने पर चाबी बदल दी जाती है।</li>
+      <li><b>बीच का server (relay):</b> ये बंद संदेश Cloudflare पर चलने वाले हमारे छोटे relay से गुज़रते हैं, जो उन्हें बाकी phones तक पहुँचाता है और तब तक रखता है जब तक साझा हिसाब बंद न हो। Relay और developer उन्हें खोलकर पढ़ नहीं सकते। Relay सिर्फ़ ये तकनीकी चीज़ें जानता है: साझा हिसाब का random id, हर phone की public key और अनुमति (लिख/देख), संदेशों का समय और आकार। Cloudflare अपने network चलाने के लिए IP address जैसी जानकारी देख सकता है; उस पर Cloudflare की privacy policy लागू होती है।</li>
+      <li><b>बंद करना:</b> "साझा हिसाब छोड़ें" से आप निकल जाते हैं। साझा हिसाब शुरू करने वाला "साझा बंद करें" दबाए, तो relay पर रखे सारे संदेश मिटा दिए जाते हैं। हर phone पर उसका अपना हिसाब बना रहता है।</li>
+      <li>कोई account, email या phone नंबर नहीं माँगा जाता; जुड़ना सिर्फ़ invite code और साझा हिसाब शुरू करने वाले की मंज़ूरी से होता है।</li>
+    </ul>
+    <h3>Google account से entry</h3>
+    <p>लेखा-जोखा Pro पहली बार खोलने पर phone की अपनी account वाली screen से अपना Google account (email) चुनना होता है; उसके बिना app नहीं खुलता। कोई OTP, SMS या password नहीं होता। चुना हुआ email <b>सिर्फ़ इसी phone में</b> रखा जाता है और Google से Drive backup की अनुमति लेने के काम आता है; यह developer या किसी server तक नहीं भेजा जाता। नाम डालना ज़रूरी नहीं: नाम न हो तो साझा हिसाब में दूसरे लोगों को email का पहला हिस्सा (@ से पहले का) दिखता है। नाम और account और → बैकअप में बदले जा सकते हैं।</p>
+    <h3>Google Drive में backup</h3>
+    <p>Entry में आप जो Google account चुनते हैं (या बाद में <b>और → बैकअप → Google Drive backup</b> में), उसी के लिए Google आपसे पूछता है कि यह app आपके Google Drive के <b>सिर्फ़ अपने छिपे folder</b> (appDataFolder) तक पहुँच सकता है या नहीं। App आपकी Drive की कोई और फ़ाइल न देख सकता है, न बदल सकता है; यह छिपा folder Drive की फ़ाइल-सूची में भी नहीं दिखता।</p>
+    <ul>
+      <li><b>क्या जाता है:</b> वही जो एक बैकअप फ़ाइल में होता है (आपका पूरा हिसाब और settings), एक फ़ाइल lekha-jokha-pro-backup.json में, और उस पर कुछ छोटे निशान: कितने खर्च, किस phone (model) से और इस installation की एक random पहचान, ताकि दूसरे phone का backup पहचाना जा सके। बिल की फ़ोटो नहीं जातीं।</li>
+      <li><b>कहाँ:</b> सीधे phone से आपके अपने Google Drive में, HTTPS पर। यह developer के किसी server से नहीं गुज़रता, और developer को इसकी कोई copy नहीं मिलती। Drive में यह फ़ाइल Google की privacy policy के तहत रखी जाती है; यह Android के Google backup की तरह आपके screen lock से end-to-end encrypted नहीं होती।</li>
+      <li><b>कब:</b> आपकी चुनी सेटिंग से: हिसाब बदलने पर (सबसे ज़्यादा हर 10 मिनट में एक बार), रोज़, हफ़्ते में, या सिर्फ़ "अभी backup लें" दबाने पर; चाहें तो सिर्फ़ Wi-Fi पर।</li>
+      <li><b>वापस लाना:</b> नए install या नए phone पर उसी account से "Google Drive backup से" दबाएँ; backup इस phone के हिसाब में मिल जाता है।</li>
+      <li><b>बंद करना और मिटाना:</b> उसी जगह "बंद करें" (Drive वाला backup रहता है) या "Drive से backup मिटाएँ"। आप Google account की settings (Data &amp; privacy → Third-party apps / Drive की "Manage apps") से भी इस app की पहुँच हटा सकते हैं और उसका छिपा data मिटा सकते हैं।</li>
+    </ul>
+    <h3>क्या नहीं होता</h3>
+    <ul>
+      <li>कोई अलग account या registration नहीं: entry सिर्फ़ phone में पहले से जुड़े आपके Google account को चुनकर होती है; कोई OTP या password नहीं।</li>
+      <li>कोई विज्ञापन (ads), analytics या tracking नहीं।</li>
+      <li>Contacts, location, SMS या phone की किसी और जानकारी तक पहुँच नहीं। App ख़ुद camera या microphone की अनुमति नहीं माँगता (नीचे "बोलकर लिखना और बिल की फ़ोटो" देखें)।</li>
+      <li>अनुमतियाँ: internet (सिर्फ़ Live साझा और Google Drive backup के लिए), सूचनाएँ, restart के बाद reminders (और backup का बाकी काम) और fingerprint।</li>
+    </ul>
+    <h3>बोलकर लिखना और बिल की फ़ोटो, version 2.0 से</h3>
+    <p><b>बोलकर लिखना:</b> 🎤 दबाने पर phone की अपनी speech-to-text app (जैसे Google) खुलती है; वही आपकी आवाज़ सुनकर लिखती है और सिर्फ़ लिखे हुए शब्द इस app को लौटाती है। इस app को microphone की अनुमति नहीं है और यह आवाज़ रिकॉर्ड या सेव नहीं करता। वह speech app आवाज़ को text में बदलने के लिए internet इस्तेमाल कर सकती है; उस पर उसी app/कंपनी की privacy policy लागू होती है। आप 🎤 न दबाएँ तो कुछ नहीं होता।</p>
+    <p><b>बिल की फ़ोटो:</b> "फ़ोटो लें" phone की camera app खोलता है (इस app को camera की अनुमति नहीं है) और "गैलरी से" सिर्फ़ वही फ़ोटो पढ़ता है जो आप चुनें। फ़ोटो छोटी करके सिर्फ़ इस app की निजी storage में रखी जाती है; वह बैकअप फ़ाइल, परिवार वाली फ़ाइल या Google backup में नहीं जाती, और developer तक नहीं पहुँचती। खर्च हटाने पर (कूड़ेदान से भी) उसकी फ़ोटो कुछ समय बाद अपने-आप मिट जाती है। "भेजें" दबाने पर ही फ़ोटो उस app में जाती है जिसे आप चुनें।</p>
+    <p><b>Home screen widget:</b> widget इस महीने का खर्च phone के अंदर ही गिनकर दिखाता है। App lock लगा हो तो widget में कोई राशि नहीं दिखती।</p>
+    <p><b>Excel/CSV से खर्च लाना:</b> app सिर्फ़ वही फ़ाइल पढ़ता है जो आप चुनें, और उसके खर्च इसी phone के हिसाब में जोड़ता है।</p>
+    <h3>Android का अपना Google backup</h3>
+    <p>Version 1.1 से, Android 9 या उससे नए phone पर, अगर phone की सेटिंग में Google backup चालू है <b>और</b> phone पर screen lock (PIN, pattern या password) लगा है, तो Android अपने-आप इस app के हिसाब की एक copy आपके अपने Google account में रखता है। यह copy आपके screen lock से end-to-end encrypt होती है, इसलिए इसे न Google पढ़ सकता है, न developer। यह app ख़ुद कुछ नहीं भेजता; यह Android की अपनी सुविधा है, और developer को इसकी कोई copy नहीं मिलती। App दोबारा install करने पर या नए phone में (उसी Google account से) यह हिसाब अपने-आप लौट आता है। Android 8 या पुराने phones पर, जहाँ ऐसा encryption नहीं होता, app Google backup में हिसाब नहीं भेजता। इसे बंद करना हो तो phone की Settings → Google → Backup में बंद करें; पुराना backup Google Drive app के Backups हिस्से में हटाया जा सकता है।</p>
+    <h3>Phone में रोज़ की बैकअप फ़ाइल</h3>
+    <p>Version 1.1 से app हर दिन (जब आप app से बाहर जाते हैं और हिसाब बदला हो) आपके हिसाब की एक copy phone के <b>Download/LekhaJokha</b> folder में रखता है (Android 9 और पुराने phones पर उस folder में जो आप चुनें)। पिछले 7 दिन की फ़ाइलें रहती हैं, ताकि app गलती से हट जाए तो भी हिसाब वापस लाया जा सके। यह फ़ाइल सिर्फ़ आपके phone में रहती है; app इसे कहीं नहीं भेजता। ध्यान दें कि phone की files पढ़ने की अनुमति वाले दूसरे apps इस folder को देख सकते हैं; आप इसे किसी भी समय File Manager से हटा सकते हैं।</p>
+    <h3>सूचनाएँ (याद दिलाना), version 2.0 से</h3>
+    <p>अगर आप app में सूचनाएँ चालू करते हैं, तो याद दिलाने वाली सूचनाएँ (जैसे शाम को "आज का हिसाब लिखा?", किराये का दिन, जन्मदिन, गैस बुकिंग) phone के अंदर ही बनती हैं। इनके लिए internet इस्तेमाल नहीं होता और कोई जानकारी बाहर नहीं जाती। इसके लिए app सूचनाएँ दिखाने की अनुमति माँगता है, और phone restart होने पर reminders फिर से लगाने की अनुमति (RECEIVE_BOOT_COMPLETED) रखता है। सूचनाएँ app में या phone की Settings में कभी भी बंद की जा सकती हैं।</p>
+    <h3>App lock, version 2.0 से</h3>
+    <p>App lock का PIN सिर्फ़ इसी phone में, बदले हुए (hash) रूप में रखा जाता है; यह बैकअप में नहीं जाता और developer तक नहीं पहुँचता। Fingerprint या चेहरे से खोलने का काम Android ख़ुद करता है; app को आपका fingerprint कभी नहीं मिलता, सिर्फ़ "सही है या नहीं" का जवाब मिलता है।</p>
+    <h3>राय भेजना, शेयर करना और rating</h3>
+    <p>"राय भेजें" दबाने पर आपका अपना email app kstatslab@gmail.com के लिए खुलता है; आप पूरा message देखकर ख़ुद भेजते हैं। उसमें आपका लिखा हुआ, app का version और (अगर आप ✓ रहने दें) phone का model और Android version होता है; आपका हिसाब नहीं। ऐसा email मिलने पर उसका इस्तेमाल सिर्फ़ जवाब देने और app सुधारने में होता है। "दोस्तों को भेजें" और पिछले 7 दिन की तस्वीर (version 2.0) भी तभी बनती है जब आप ख़ुद दबाते हैं, और वहीं जाती है जहाँ आप चुनें। "Rating दें" Play Store खोलता है।</p>
+    <h3>बैकअप, परिवार वाली फ़ाइलें और reports</h3>
+    <p>कोई फ़ाइल तभी बनती है जब आप खुद कोई बटन दबाते हैं: "बैकअप भेजें", "परिवार को भेजें", "फ़ाइल में सेव करें", या PDF, Excel, CSV report। फ़ाइल वहीं जाती है जहाँ आप चुनते हैं, जैसे phone का कोई folder, printer, या WhatsApp/Gmail पर कोई व्यक्ति या परिवार का group। परिवार वाली फ़ाइल में पिछले लगभग 13 महीनों के खर्च और सदस्यों के नाम होते हैं, ताकि परिवार के बाकी phones उन्हें जोड़ सकें। भेजने के बाद उस फ़ाइल पर उस app या service की privacy policy लागू होती है जिसे आपने चुना। फ़ाइल जोड़ते समय app सिर्फ़ वही फ़ाइल पढ़ता है जो आप चुनते या खोलते हैं।</p>
+    <h3 id="hatana">Data हटाना</h3>
+    <p>App हटाने (uninstall) पर या phone की Settings में app का data साफ़ करने पर सारा हिसाब phone से मिट जाता है। अगर Google backup चालू था, तो उसकी encrypted copy आपके Google account में रहती है, जिसे आप ऊपर बताए तरीके से हटा सकते हैं। Google Drive backup चालू था, तो उसकी फ़ाइल आपके Drive के छिपे folder में रहती है; उसे app में "Drive से backup मिटाएँ" से या Drive की "Manage apps" से हटाएँ। Download/LekhaJokha की रोज़ वाली फ़ाइलें और जो फ़ाइलें आपने सेव या भेजी हैं, वे आपके नियंत्रण में रहती हैं और उन्हें आप खुद हटा सकते हैं। परिवार के दूसरे phones पर जो हिसाब पहले से जुड़ चुका है, वह उन phones पर रहता है।</p>
+    <h3>बच्चे</h3>
+    <p>यह app घर का खर्च लिखने के लिए वयस्कों के लिए बना है और बच्चों को ध्यान में रखकर नहीं बनाया गया है। यह किसी से भी, बच्चों समेत, कोई निजी जानकारी इकट्ठा नहीं करता।</p>
+    <h3>बदलाव</h3>
+    <p>अगर यह policy कभी बदली, तो नया version इसी page पर नई तारीख़ के साथ दिखेगा।</p>
+    <h3>संपर्क</h3>
+    <p>KStats Lab · <a href="mailto:kstatslab@gmail.com">kstatslab@gmail.com</a></p>
+  </section>
+
+  <section lang="en">
+    <h2>English</h2>
+    <p class="lead">Lekha Jokha Pro does not collect any personal or usage data. Only if you turn on live sharing does your hisaab leave the phone, end-to-end encrypted on the phone, and only to the people you add. Neither the developer nor the server in between can read it.</p>
+    <h3>Where your data is stored</h3>
+    <p>The expenses, budget, income, family member names, house-help or driver names and attendance, grocery list, loans, savings goals, cash in hand and notes you enter are stored on your phone, in the app's private storage. The app uses the internet for just two things: <b>live sharing</b> and a <b>backup in your own Google Drive</b> (both below), and each only if you turn it on. With both off, the app sends nothing out.</p>
+    <h3>Live shared hisaab</h3>
+    <ul>
+      <li><b>What is sent:</b> when you start a shared hisaab or join one with a code, your expenses, removed expenses, family member names and your own categories go to the phones of the other people in that shared hisaab, together with the names, relations and permissions of the people sharing, as you write or choose them.</li>
+      <li><b>Encryption:</b> all of it is encrypted on your phone with AES-256-GCM. Only the phones in that shared hisaab hold the key; a new person receives it sealed for their phone alone (ECDH). Removing someone changes the key.</li>
+      <li><b>The relay:</b> these sealed messages pass through our small relay running on Cloudflare, which delivers them to the other phones and keeps them until the shared hisaab is closed. Neither the relay nor the developer can open or read them. The relay only knows technical details: the random id of the shared hisaab, each phone's public key and permission (write / view), and the time and size of messages. Cloudflare may see details such as IP addresses to run its network; Cloudflare's privacy policy applies to that.</li>
+      <li><b>Stopping:</b> "Leave the shared hisaab" takes you out. When the person who started it taps "Stop sharing", every message kept on the relay is deleted. Each phone keeps its own copy of the accounts.</li>
+      <li>No account, email or phone number is asked for; joining needs only an invite code and the approval of the person who started the shared hisaab.</li>
+    </ul>
+    <h3>Entry with your Google account</h3>
+    <p>When you first open लेखा-जोखा Pro, you pick your Google account (email) on the phone's own account screen; the app does not open without it. There is no OTP, SMS or password. The chosen email is kept <b>only on this phone</b> and is used to get Google's permission for the Drive backup; it is not sent to the developer or to any server. A name is optional: without one, other people in a shared hisaab see the first part of the email (before the @). The name and the account can be changed under More → Backup.</p>
+    <h3>Google Drive backup</h3>
+    <p>For the Google account you pick at entry (or later under <b>More → Backup → Google Drive backup</b>), Google asks whether this app may use <b>only its own hidden folder</b> (appDataFolder) in your Google Drive. The app cannot see or change any other Drive file; the hidden folder does not appear in Drive's file list.</p>
+    <ul>
+      <li><b>What goes:</b> the same as a backup file (all your accounts and settings), in one file lekha-jokha-pro-backup.json, with a few small labels: how many expenses, which phone model, and a random id of this installation so a backup from another phone can be recognised. Bill photos are not included.</li>
+      <li><b>Where:</b> straight from the phone to your own Google Drive over HTTPS. It does not pass through any server of the developer, and the developer never gets a copy. Google keeps the file under its privacy policy; unlike Android's own Google backup it is not end-to-end encrypted with your screen lock.</li>
+      <li><b>When:</b> by your setting: when the accounts change (at most once every 10 minutes), daily, weekly, or only when you tap "Back up now"; optionally only on Wi-Fi.</li>
+      <li><b>Bringing it back:</b> on a new install or a new phone, tap "From Google Drive backup" with the same account; the backup merges into that phone's accounts.</li>
+      <li><b>Stopping and deleting:</b> "Stop" in the same place (the backup in Drive stays) or "Delete backup from Drive". You can also remove the app's access and delete its hidden data in your Google account settings (Data &amp; privacy → Third-party apps, or Drive's "Manage apps").</li>
+    </ul>
+    <h3>What the app does not do</h3>
+    <ul>
+      <li>No separate account or registration: entry is just picking the Google account already on your phone; no OTP or password.</li>
+      <li>No advertising, analytics or tracking of any kind.</li>
+      <li>No access to contacts, location, SMS or other device information. The app itself does not ask for camera or microphone permission (see "Speaking an expense and bill photos" below).</li>
+      <li>Permissions: internet (only for live sharing and the Google Drive backup), notifications, restart reminders (and pending backups) and fingerprint.</li>
+    </ul>
+    <h3>Speaking an expense and bill photos, from version 2.0</h3>
+    <p><b>Speaking an expense:</b> tapping 🎤 opens the phone's own speech-to-text app (such as Google's); that app listens and returns only the written words to this app. This app has no microphone permission and does not record or keep any audio. The speech app may use the internet to turn speech into text; its own provider's privacy policy applies to that. Nothing happens unless you tap 🎤.</p>
+    <p><b>Bill photos:</b> "Take photo" opens the phone's camera app (this app has no camera permission), and "From gallery" reads only the photo you pick. The photo is made smaller and kept only in this app's private storage; it is not put in backup files, family files or Google backup, and never reaches the developer. When an expense is deleted (including from the recycle bin), its photo is removed automatically after a while. A photo leaves the app only when you tap "Send" and choose where.</p>
+    <p><b>Home-screen widget:</b> the widget works out this month's spending on the phone itself. With the app lock on, the widget shows no amounts.</p>
+    <p><b>Bringing in expenses from Excel/CSV:</b> the app reads only the file you choose and adds its expenses to the accounts on this phone.</p>
+    <h3>Android's own Google backup</h3>
+    <p>From version 1.1, on Android 9 or newer, if Google backup is turned on in your phone's settings <b>and</b> the phone has a screen lock (PIN, pattern or password), Android itself keeps a copy of this app's records in your own Google account. The copy is end-to-end encrypted with your screen lock, so neither Google nor the developer can read it. The app itself sends nothing; this is Android's own feature, and the developer never receives a copy. When you reinstall the app, or set up a new phone with the same Google account, the records come back by themselves. On Android 8 or older, where such encryption is not available, the app leaves its records out of Google backup. To turn it off, use your phone's Settings → Google → Backup; an existing backup can be deleted in the Backups section of the Google Drive app.</p>
+    <h3>Daily backup file on the phone</h3>
+    <p>From version 1.1, each day (when you leave the app and your records have changed) the app keeps a copy of your records in the phone's <b>Download/LekhaJokha</b> folder (on Android 9 and older, in a folder you choose). The last 7 days are kept, so the records can be brought back even if the app is removed by mistake. The file stays only on your phone; the app does not send it anywhere. Other apps that you have allowed to read your phone's files can see this folder; you can delete it at any time with a file manager.</p>
+    <h3>Reminders, from version 2.0</h3>
+    <p>If you turn on reminders in the app, the notifications (such as the evening "written today's spends?", rent day, birthdays, gas booking) are made on the phone itself. They use no internet and send nothing out. For this the app asks for permission to show notifications, and holds the permission to set reminders again after the phone restarts (RECEIVE_BOOT_COMPLETED). You can turn reminders off in the app or in the phone's Settings at any time.</p>
+    <h3>App lock, from version 2.0</h3>
+    <p>The app lock PIN is kept only on this phone, as a one-way hash; it is not included in backups and never reaches the developer. Fingerprint or face unlock is handled by Android itself; the app never receives your fingerprint, only a yes/no answer.</p>
+    <h3>Feedback, sharing and rating</h3>
+    <p>"Send feedback" opens your own email app addressed to kstatslab@gmail.com; you see the whole message and send it yourself. It contains what you wrote, the app version and (if you leave the tick on) the phone model and Android version; never your accounts. Such emails are used only to reply and to improve the app. "Share with friends" and the picture of the last 7 days (version 2.0) are also made only when you tap them, and go only where you choose. "Rate the app" opens the Play Store.</p>
+    <h3>Backup files, family files and reports</h3>
+    <p>A file is created only when you tap a button yourself: "Send backup", "Send to family", "Save to file", or a PDF, Excel or CSV report. It goes only where you choose, such as a folder on your phone, a printer, or a person or family group on WhatsApp or Gmail. A family file contains the expenses of roughly the last 13 months and the family member names, so that the other family phones can add them. Once sent, the privacy policy of the app or service you chose applies to that file. When adding a file, the app reads only the file you pick or open.</p>
+    <h3 id="delete">Deleting your data</h3>
+    <p>Uninstalling the app, or clearing its data in your phone's Settings, deletes all entries from the phone. If Google backup was on, its encrypted copy stays in your Google account, and you can delete it as described above. If the Google Drive backup was on, its file stays in your Drive's hidden folder; delete it with "Delete backup from Drive" in the app or in Drive's "Manage apps". The daily files in Download/LekhaJokha and files you saved or sent remain under your control and can be deleted by you. Entries already added on other family phones stay on those phones.</p>
+    <h3>Children</h3>
+    <p>The app is a household expense tracker meant for adults and is not directed at children. It collects no personal information from anyone, including children.</p>
+    <h3>Changes</h3>
+    <p>If this policy changes, the new version will be posted on this page with a new effective date.</p>
+    <h3>Contact</h3>
+    <p>KStats Lab · <a href="mailto:kstatslab@gmail.com">kstatslab@gmail.com</a></p>
+  </section>
+</main>
+</body>
+</html>
