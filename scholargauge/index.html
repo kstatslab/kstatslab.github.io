@@ -1,74 +1,219 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ScholarGauge</title>
-  <meta name="description" content="ScholarGauge: journal quartiles, novelty index, UN SDGs and research profiles for Google Scholar, for every field. Free, private, no account.">
-  <style>
-    :root { color-scheme: light; }
-    body { max-width: 780px; margin: 0 auto; padding: 28px 18px 48px; font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #1f1e1c; background: #fff; }
-    header { display: flex; gap: 16px; align-items: center; }
-    header img { width: 72px; height: 72px; }
-    h1 { font-size: 30px; margin: 0; color: #104281; }
-    .tag { margin: 2px 0 0; color: #52514e; }
-    h2 { font-size: 19px; margin: 28px 0 8px; }
-    ul { padding-left: 22px; }
-    li { margin: 5px 0; }
-    .muted { color: #6b6a66; font-size: 14px; }
-    a { color: #1c5cab; }
-    .btn { display: inline-block; margin-top: 16px; padding: 8px 16px; border-radius: 6px; background: #1c5cab; color: #fff; text-decoration: none; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScholarGauge — KStats Lab</title>
+<meta name="description" content="ScholarGauge: journal quartiles now and when published, citations, UN SDGs, research fingerprints with h, g and author-normalised indices, profile comparison, one-page reports, a journal checker and a novelty index for Google Scholar, for every field. Free, no account, no ads.">
+<meta property="og:title" content="ScholarGauge – journal quartiles and research profiles for Google Scholar">
+<meta property="og:description" content="Free browser extension by KStats Lab: SCImago quartile now and when published, research fingerprint of any Scholar profile, profile comparison and reports, a journal checker and a novelty index. Every field.">
+<meta property="og:image" content="https://kstatslab.github.io/scholargauge/shots/1-fingerprint.jpg">
+<meta property="og:url" content="https://kstatslab.github.io/scholargauge/">
+<meta property="og:type" content="website">
+<link rel="icon" href="../img/scholargauge.png">
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header>
-    <img src="icon128.png" alt="">
+<div class="top"><div class="wrap">
+  <a class="brand" href="../" aria-label="KStats Lab, home">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1f7a6d"/><rect x="9" y="22" width="5.5" height="10" rx="1.5" fill="#fff"/><rect x="17.25" y="15" width="5.5" height="17" rx="1.5" fill="#fff"/><rect x="25.5" y="8" width="5.5" height="24" rx="1.5" fill="#f4b733"/></svg>
+    KStats Lab
+  </a>
+  <nav aria-label="Main"><a href="../#apps">Apps</a><a href="methods.html">Methods</a><a href="privacy.html">Privacy</a></nav>
+</div></div>
+
+<section class="hero"><div class="wrap">
+  <div class="app-head">
+    <img src="../img/scholargauge.png" alt="ScholarGauge icon" width="96" height="96">
     <div>
       <h1>ScholarGauge</h1>
-      <p class="tag">Journal quartiles, novelty and research profiles for Google Scholar™ – any field</p>
+      <p class="en">Journal quartiles, novelty and research profiles for Google Scholar™ – for every field</p>
     </div>
-  </header>
+  </div>
+  <p class="hi" lang="hi">Google Scholar पर हर paper के journal का quartile (आज का और छपने वाले साल का), citations, विषय और UN SDG;
+    किसी भी researcher की profile की पूरी तस्वीर, profiles की तुलना और एक पेज की report; किसी भी journal का हर साल का quartile;
+    और नए idea की novelty जाँच। हर विषय के लिए, मुफ़्त।</p>
+  <ul class="pills">
+    <li lang="hi">पूरी तरह मुफ़्त · Free</li>
+    <li>No account · No ads</li>
+    <li lang="hi">हर विषय · Every field</li>
+  </ul>
+  <div class="actions hero-actions">
+    <a class="btn primary" href="https://chromewebstore.google.com/detail/nhcagmfnfgnlndmandhoadnfkcjggmgg">Add to Chrome – free</a>
+    <a class="btn" href="methods.html">Methods &amp; references</a>
+    <a class="btn" href="privacy.html">Privacy policy</a>
+  </div>
+  <p class="note">Works in <b>Chrome</b> and <b>Microsoft Edge</b> on computers (in Edge, open the same link and choose
+    “Allow extensions from other stores”). <span class="badge" lang="hi">जल्द · Coming soon</span> Firefox (computers and
+    Android phones) and an Android app.</p>
+</div></section>
 
-  <a class="btn" href="https://chromewebstore.google.com/detail/nhcagmfnfgnlndmandhoadnfkcjggmgg" id="store" target="_blank" rel="noopener">Add to Chrome – free</a>
-
-  <h2>Under every Google Scholar result</h2>
-  <ul>
-    <li>The journal's SCImago quartile and SJR today, and its quartile in the year the paper appeared (1999–2025)</li>
-    <li>Warnings for retracted papers and for journals dropped by Scopus</li>
-    <li>Citations per year and the paper's citation percentile in its field</li>
-    <li>The paper's OpenAlex topic and its UN Sustainable Development Goals</li>
-    <li>For reliability and lifetime-model papers: distribution, censoring scheme, model and method</li>
-    <li>Sort, filter by quartile, export to CSV</li>
+<main class="wrap">
+  <h2>नया <span class="muted">· New in version 1.1</span></h2>
+  <p class="sub">Chrome updates ScholarGauge by itself. If yours still says version 1.0, the update reaches it within a few days.</p>
+  <ul class="promise">
+    <li><b>Impact indices</b>h, g and the m-quotient, plus hI,norm and hIa, which share each paper's citations among its authors and allow for career length.</li>
+    <li><b>Author role</b>Share of papers as first, last or sole author, with the median number of authors per paper.</li>
+    <li><b>Open access and citations per year</b>Share of papers free to read (diamond, gold, hybrid, green, bronze), and Scholar's own citations-per-year chart.</li>
+    <li><b>Save a profile</b>Next time, see what changed: new papers, citations, h-index, journals that moved up or down.</li>
+    <li><b>Compare profiles</b>Two to four saved profiles side by side: quartiles, indexing, citations, authorship and openness.</li>
+    <li><b>One-page report</b>A whole profile on one A4 page, to print or save as PDF.</li>
+    <li><b>Journal checker</b>Any journal by name or ISSN: its SCImago quartile in every year since 1999, and the years Scopus covered it.</li>
+    <li><b>Right-click check</b>Select a paper title on any website, or right-click a DOI link, and choose <i>Check with ScholarGauge</i>.</li>
   </ul>
 
-  <h2>On a Scholar profile</h2>
-  <p>A research fingerprint, for all years or recent years: a quartile matrix (papers in Q1–Q4 journals now and when
-    published, and which journals moved up or down), how many papers are in Scopus-covered journals and – with your own free
-    Clarivate key – in the Web of Science Core Collection, papers per year by quartile when published, venues, citations, research areas, UN SDGs,
-    co-authors and countries, interdisciplinarity (Rao–Stirling), exploration of new topics, and a table of variety
-    (diversity) indices – Shannon, Simpson, evenness – for topics, fields, keywords, journals, co-authors and SDGs.
-    Point at any number for its meaning.</p>
+  <h2>क्या-क्या है <span class="muted">· What it does</span></h2>
+  <div class="three">
+    <div class="box">
+      <h3>Under every Scholar result</h3>
+      <ul>
+        <li>The journal's SCImago quartile and SJR today, and its quartile in the year the paper appeared (1999–2025)</li>
+        <li>Warnings for retracted papers and for journals later dropped by Scopus</li>
+        <li>Citations per year and the paper's citation percentile in its field</li>
+        <li>Topic and UN Sustainable Development Goals</li>
+        <li>Sort, filter by quartile, export to CSV</li>
+        <li>On any other website: select a title, right-click, <i>Check with ScholarGauge</i></li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>On a Scholar profile</h3>
+      <ul>
+        <li><b>Quartile matrix:</b> papers in Q1–Q4 journals now and when published, and which journals moved up or down</li>
+        <li><b>Indexed in:</b> papers in Scopus-covered journals, and – with your own free Clarivate key – in the Web of Science Core Collection</li>
+        <li>Papers per year coloured by quartile, venues, median citations per year and field percentile</li>
+        <li><b>Impact:</b> h, g, m-quotient, hI,norm and hIa; author role; open access; Scholar's citations per year</li>
+        <li>Research areas, SDGs, co-authors and countries</li>
+        <li>Interdisciplinarity (Rao–Stirling), exploration of new topics and variety (diversity) indices</li>
+        <li>All years or the last six; point at any number to see what it means</li>
+        <li><b>Save</b> a profile to see what changed later, <b>compare</b> saved profiles side by side, or make a <b>one-page report</b></li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Research lab</h3>
+      <ul>
+        <li><b>Topic map:</b> which ideas the most relevant papers on a topic study together, and which common pairs are missing</li>
+        <li><b>Has it been done?</b> Type two ideas (and a field): the papers that already combine them, with a novelty (gap) index from 0 (crowded) to 100 (open gap)</li>
+        <li><b>Paper:</b> any paper by DOI or title – its journal's quartile then and now, citations and field percentile</li>
+        <li><b>Journal:</b> any journal by name or ISSN – its quartile in every year since 1999 (built in, nothing is sent)</li>
+        <li>Every index comes with its definition, formula, a worked example and references, so it can be cited</li>
+      </ul>
+    </div>
+  </div>
 
-  <h2>Research lab</h2>
-  <ul>
-    <li><b>Topic map</b> – which keywords the papers on a topic study together, and which common pairs are missing (gaps)</li>
-    <li><b>Has it been done?</b> – papers combining your ideas, with a novelty (gap) index from 0 (crowded) to 100 (open gap)</li>
-  </ul>
+  <h2>झलक <span class="muted">· Screenshots</span></h2>
+  <div class="shots wide" tabindex="0" aria-label="Screenshots (tap one to see it full size)">
+    <figure><a href="shots/1-fingerprint.jpg"><img src="shots/1-fingerprint.jpg" alt="Research fingerprint of a Google Scholar profile: papers, quartile matrix, Scopus and Web of Science, citations, co-authors, interdisciplinarity" width="1280" height="800" loading="lazy"></a>
+      <figcaption>Research fingerprint of a Scholar profile</figcaption></figure>
+    <figure><a href="shots/6-report.jpg"><img src="shots/6-report.jpg" alt="One-page report of a research profile: key figures, journal quartiles, papers per year, impact indices, citations per year, fields and SDGs" width="1280" height="800" loading="lazy"></a>
+      <figcaption>One-page profile report (sample data)</figcaption></figure>
+    <figure><a href="shots/7-compare.jpg"><img src="shots/7-compare.jpg" alt="Two saved profiles compared side by side: quartile mix, indexing, citations, h, g, m, hI,norm and hIa" width="1280" height="800" loading="lazy"></a>
+      <figcaption>Saved profiles compared side by side (sample data)</figcaption></figure>
+    <figure><a href="shots/8-journal.jpg"><img src="shots/8-journal.jpg" alt="Journal checker: a journal's best SCImago quartile in every year from 1999 to 2025, subject categories and facts" width="1280" height="800" loading="lazy"></a>
+      <figcaption>Journal checker: the quartile in every year since 1999</figcaption></figure>
+    <figure><a href="shots/2-papers-per-year.jpg"><img src="shots/2-papers-per-year.jpg" alt="Bar chart of papers per year coloured by the journal's quartile in the year of publication, with research areas" width="1280" height="800" loading="lazy"></a>
+      <figcaption>Papers per year, by the journal's quartile when published</figcaption></figure>
+    <figure><a href="shots/3-areas-sdgs-variety.jpg"><img src="shots/3-areas-sdgs-variety.jpg" alt="UN SDG bars and a table of variety indices for topics, fields, keywords and journals" width="1280" height="800" loading="lazy"></a>
+      <figcaption>UN SDGs and variety indices</figcaption></figure>
+    <figure><a href="shots/4-methods.jpg"><img src="shots/4-methods.jpg" alt="Methods page with the formula of the novelty (gap) index" width="1280" height="800" loading="lazy"></a>
+      <figcaption>Every index defined, with formulas and references</figcaption></figure>
+    <figure><a href="shots/5-privacy.jpg"><img src="shots/5-privacy.jpg" alt="Table of what the extension sends and to whom" width="1280" height="800" loading="lazy"></a>
+      <figcaption>Nothing is looked up until you agree</figcaption></figure>
+  </div>
 
-  <h2>How the indices are computed</h2>
-  <p>Definitions, formulas, worked examples and references for the novelty index, the variety indices, interdisciplinarity
-    and exploration: <a href="methods.html">Methods and references</a>.</p>
+  <h2>कैसे शुरू करें <span class="muted">· Getting started</span></h2>
+  <ol class="steps">
+    <li><b>Add to Chrome</b> from the Chrome Web Store. Pin ScholarGauge from the puzzle-piece menu so its button stays in the toolbar.</li>
+    <li>The welcome page shows what is sent and to whom. Click <b>Agree and turn on</b>. An OpenAlex key is optional.</li>
+    <li>Search on <b>Google Scholar</b>: quartile and citation chips appear under every result. On a profile, click
+      <b>Load all papers</b>, then <b>Analyse</b> in the ScholarGauge panel. Below the cards: <b>Save profile</b>,
+      <b>Compare…</b> and <b>One-page report</b>.</li>
+    <li>For the <b>Topic map</b>, <b>Has it been done?</b>, <b>Paper</b> and <b>Journal</b>, click the ScholarGauge button in the toolbar.</li>
+    <li>On any website, select a paper's title (or right-click a DOI link) and choose <b>Check with ScholarGauge</b>.</li>
+  </ol>
+
+  <h2>आँकड़े कहाँ से <span class="muted">· Data and methods</span></h2>
+  <div class="two">
+    <div class="box">
+      <h3>Sources</h3>
+      <ul>
+        <li>Journal quartiles and SJR: <a href="https://www.scimagojr.com">SCImago Journal &amp; Country Rank</a>, 1999–2025, built into the extension</li>
+        <li>Papers, field percentiles, topics, keywords and SDGs: <a href="https://openalex.org">OpenAlex</a></li>
+        <li>DOIs found from titles: <a href="https://www.crossref.org">Crossref</a></li>
+        <li>Citation counts on Scholar pages are Google Scholar's own</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Methods</h3>
+      <p>The novelty (gap) index, variety indices, interdisciplinarity, exploration and the impact indices (h, g, m, hI,norm,
+        hIa) are explained step by step, with 30 references: <a href="methods.html">Methods and references</a>.</p>
+      <p>Using them in a report or paper? <a href="methods.html#cite">How to cite ScholarGauge</a>.</p>
+    </div>
+  </div>
 
   <h2>Privacy</h2>
-  <p>Free, no account, no server, no analytics. Nothing is looked up until you agree. Only paper titles, first-author
-    surnames, DOIs and your Research-lab searches are sent, and only to Crossref and OpenAlex (and, only if you add your own
-    Web of Science key, the DOIs of a profile's papers to Clarivate).
-    Read the <a href="privacy.html">privacy policy</a>.</p>
+  <p class="sub">Free, no account, no server, no analytics, no advertising. Nothing is looked up until you agree. Only paper
+    titles, first-author surnames, DOIs, your Research-lab searches and text you choose to check with the right-click item are
+    sent, and only to Crossref and OpenAlex (and, only if you add your own Web of Science key, the DOIs of a profile's papers to
+    Clarivate). Settings and saved profiles stay in your browser.</p>
+  <div class="actions"><a class="btn" href="privacy.html">Privacy policy (extension)</a>
+    <a class="btn" href="android-privacy.html">Privacy policy (Android app)</a></div>
 
-  <h2>Contact</h2>
-  <p><a href="../">KStats Lab</a> · <a href="mailto:kstatslab@gmail.com">kstatslab@gmail.com</a></p>
+  <h2>सवाल-जवाब <span class="muted">· Questions</span></h2>
+  <div class="faq">
+    <details>
+      <summary>Is it really free?</summary>
+      <p>Yes. No account, no advertising and no paid version. All KStats Lab apps and extensions are free.</p>
+    </details>
+    <details>
+      <summary>Why do some papers show no quartile?</summary>
+      <p>Either the journal was not in SCImago's list in that year (so it was not covered by Scopus then), or the item is a
+        book, chapter, conference paper, thesis or preprint, or its title could not be matched to a DOI. Such papers are counted
+        under “None” and “not in SJR”.</p>
+    </details>
+    <details>
+      <summary>Are these the same quartiles as Web of Science (JCR)?</summary>
+      <p>No. ScholarGauge shows SCImago's best quartile of the journal across its subject categories, which is based on Scopus.
+        Clarivate's Journal Citation Reports use other data and can give a different quartile.</p>
+    </details>
+    <details>
+      <summary>Why is the h-index on the card different from the one Scholar shows?</summary>
+      <p>The card computes h (and g, m, hI,norm, hIa) from the papers ScholarGauge has read on the page, so click
+        <b>Load all papers</b> before <b>Analyse</b>. Scholar's own h-index and i10-index are shown unchanged next to the
+        citations-per-year chart.</p>
+    </details>
+    <details>
+      <summary>Where are saved profiles kept? Can others see them?</summary>
+      <p>Only in your own browser. They are never sent anywhere, and <b>Delete</b> on the Saved profiles page removes them.</p>
+    </details>
+    <details>
+      <summary>Do I need an API key?</summary>
+      <p>No. An OpenAlex key only raises the daily allowance for heavy use. A free Clarivate key (Web of Science Starter API)
+        is needed only to count papers in the Web of Science Core Collection.</p>
+    </details>
+    <details>
+      <summary>Is it connected with Google, SCImago or Clarivate?</summary>
+      <p>No. ScholarGauge is an independent academic tool by KStats Lab. It is not affiliated with or endorsed by Google,
+        SCImago, Elsevier, Clarivate, Crossref or OpenAlex.</p>
+    </details>
+    <details>
+      <summary>Something looks wrong. What should I send?</summary>
+      <p>Write to <a href="mailto:kstatslab@gmail.com?subject=ScholarGauge">kstatslab@gmail.com</a> with the link of the
+        Scholar page or profile and what you expected to see.</p>
+    </details>
+  </div>
 
-  <p class="muted">Journal data: SCImago Journal &amp; Country Rank. Paper records: OpenAlex and Crossref. ScholarGauge is not
-    affiliated with or endorsed by Google, SCImago, Elsevier, Crossref or OpenAlex. Google Scholar is a trademark of Google LLC.</p>
+  <h2 id="contact">संपर्क <span class="muted">· Contact</span></h2>
+  <p class="sub">Questions, ideas or a mistake to report: <a href="mailto:kstatslab@gmail.com?subject=ScholarGauge">kstatslab@gmail.com</a>.
+    A short review on the <a href="https://chromewebstore.google.com/detail/nhcagmfnfgnlndmandhoadnfkcjggmgg">Chrome Web Store</a>
+    helps other researchers find it.</p>
+
+  <p class="muted small">Google Scholar is a trademark of Google LLC. Journal data: SCImago Journal &amp; Country Rank.
+    Paper records: OpenAlex and Crossref.</p>
+</main>
+
+<footer><div class="wrap">
+  <p>© 2026 <a href="../">KStats Lab</a> · India</p>
+  <p><a href="mailto:kstatslab@gmail.com">kstatslab@gmail.com</a></p>
+</div></footer>
 </body>
 </html>

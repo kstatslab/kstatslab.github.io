@@ -27,13 +27,15 @@
     .cite { font-size: 13px; background: #fff; border: 1px dashed var(--line); border-radius: 8px; padding: 8px 12px; }
     sup.r a { text-decoration: none; }
     table.cols td:nth-child(2) { white-space: nowrap; }
+    /* phones: long formulas and wide tables scroll sideways instead of widening the page */
+    math[display="block"], table.t { display: block; max-width: 100%; overflow-x: auto; }
   </style>
 </head>
 <body>
 <header>
-  <a class="brand" href="index.html" style="text-decoration:none">ScholarGauge</a>
+  <a href="../" style="font-size:14px">KStats Lab</a> › <a class="brand" href="index.html" style="text-decoration:none">ScholarGauge</a>
   <h1>Methods and references</h1>
-  <p class="muted small">How each index is defined, where the idea comes from, and how to read it. Version 1.0.0.
+  <p class="muted small">How each index is defined, where the idea comes from, and how to read it. Version 1.1.0.
     Notation: O = observed count, E = expected count, p<sub>i</sub> = share of label i.</p>
   <nav class="toc">
     <a href="#novelty">Novelty (gap) index</a>
@@ -41,6 +43,7 @@
     <a href="#variety">Variety indices</a>
     <a href="#rao">Interdisciplinarity</a>
     <a href="#exploration">Exploration</a>
+    <a href="#impact">Impact indices, author role, open access</a>
     <a href="#data">Data behind the indices</a>
     <a href="#cite">How to cite</a>
     <a href="#refs">References</a>
@@ -74,13 +77,13 @@
     <mo>.</mo>
   </math>
   <p>The ratio O/E is the classical observed-to-expected measure of co-occurrence: it is the "association strength" of
-    co-word analysis<sup class="r"><a href="#r-callon">[1]</a>,<a href="#r-vaneck">[20]</a></sup> and, for journal pairs, the
-    "commonness" used to score the novelty of papers<sup class="r"><a href="#r-lee">[6]</a></sup>,
+    co-word analysis<sup class="r"><a href="#r-callon">[1]</a>,<a href="#r-vaneck">[25]</a></sup> and, for journal pairs, the
+    "commonness" used to score the novelty of papers<sup class="r"><a href="#r-lee">[9]</a></sup>,
     commonness = <i>N<sub>ijt</sub></i> <i>N<sub>t</sub></i> / (<i>N<sub>it</sub></i> <i>N<sub>jt</sub></i>).</p>
 
   <h3>The index</h3>
   <p>Because <i>p</i><sub>A</sub><i>p</i><sub>B</sub> is small, the binomial count is very close to Poisson(E): by
-    Le Cam's inequality<sup class="r"><a href="#r-lecam">[5]</a></sup> the total-variation distance is below
+    Le Cam's inequality<sup class="r"><a href="#r-lecam">[8]</a></sup> the total-variation distance is below
     <i>n</i>(C)(<i>p</i><sub>A</sub><i>p</i><sub>B</sub>)<sup>2</sup> = E<sup>2</sup>/<i>n</i>(C). With X ~ Poisson(E),</p>
   <div class="box">
   <math display="block">
@@ -125,12 +128,12 @@
   <h3>Where the idea comes from</h3>
   <p>Comparing how often two things occur together with how often they would by chance is the basis of co-word analysis
     (Callon et al., 1983)<sup class="r"><a href="#r-callon">[1]</a></sup> and of normalised co-occurrence measures (van Eck and
-    Waltman, 2009)<sup class="r"><a href="#r-vaneck">[20]</a></sup>. Novelty studies apply it to pairs of journals cited together:
-    Uzzi et al. (2013)<sup class="r"><a href="#r-uzzi">[19]</a></sup> compare observed pair frequencies with randomised citation
-    networks (z-scores), Lee, Walsh and Wang (2015)<sup class="r"><a href="#r-lee">[6]</a></sup> use the observed-to-expected
-    ratio ("commonness"), and Wang, Veugelers and Stephan (2017)<sup class="r"><a href="#r-wang">[22]</a></sup> score first-time
+    Waltman, 2009)<sup class="r"><a href="#r-vaneck">[25]</a></sup>. Novelty studies apply it to pairs of journals cited together:
+    Uzzi et al. (2013)<sup class="r"><a href="#r-uzzi">[24]</a></sup> compare observed pair frequencies with randomised citation
+    networks (z-scores), Lee, Walsh and Wang (2015)<sup class="r"><a href="#r-lee">[9]</a></sup> use the observed-to-expected
+    ratio ("commonness"), and Wang, Veugelers and Stephan (2017)<sup class="r"><a href="#r-wang">[28]</a></sup> score first-time
     pairs. The notion of a gap between two literatures that are each well studied but rarely linked goes back to Swanson's
-    "undiscovered public knowledge" (1986)<sup class="r"><a href="#r-swanson">[18]</a></sup>.</p>
+    "undiscovered public knowledge" (1986)<sup class="r"><a href="#r-swanson">[23]</a></sup>.</p>
   <p><b>What is ScholarGauge's own:</b> turning the observed-versus-expected comparison for two ideas into a Poisson tail
     probability on a 0–100 scale, computed from OpenAlex search counts. It is not a published standard index, so in a paper
     describe it by its formula (see <a href="#cite">How to cite</a>).</p>
@@ -164,12 +167,12 @@
   <p>The profile table measures how varied a researcher's papers are along one dimension at a time: OpenAlex topics,
     subfields, fields and domains; OpenAlex keywords; journals; co-authors; co-author countries; UN SDGs; and, when the
     reliability dictionary recognises them, distributions, censoring schemes, models and methods. The same indices are used
-    in ecology for species and in scientometrics for disciplines<sup class="r"><a href="#r-stirling">[17]</a></sup>.</p>
+    in ecology for species and in scientometrics for disciplines<sup class="r"><a href="#r-stirling">[22]</a></sup>.</p>
 
   <h3>Fractional counting</h3>
   <p>Paper <i>j</i> carries a set L<sub>j</sub> of labels in the dimension (one primary topic, but possibly several keywords,
     co-authors or SDGs). Its weight 1 is split equally among its labels, so a paper with many labels does not count more than
-    one with a single label<sup class="r"><a href="#r-waltman">[21]</a></sup>:</p>
+    one with a single label<sup class="r"><a href="#r-waltman">[27]</a></sup>:</p>
   <math display="block">
     <msub><mi>w</mi><mi>i</mi></msub><mo>=</mo><munder><mo>∑</mo><mi>j</mi></munder>
     <mfrac><mrow><mn>1</mn><mo stretchy="false">{</mo><mi>i</mi><mo>∈</mo><msub><mi>L</mi><mi>j</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mo>|</mo><msub><mi>L</mi><mi>j</mi></msub><mo>|</mo></mrow></mfrac>
@@ -187,12 +190,12 @@
     <tr><td>Kinds</td><td>S = #{i : w<sub>i</sub> &gt; 0}</td><td>richness: number of different labels</td><td>–</td></tr>
     <tr><td>Effective kinds</td><td>N<sub>1</sub> = e<sup>H</sup>, H = −Σ p<sub>i</sub> ln p<sub>i</sub></td>
       <td>Shannon entropy H turned into a number of kinds: the number of equally common labels that would give the same H</td>
-      <td>Shannon (1948)<sup class="r"><a href="#r-shannon">[15]</a></sup>; Hill (1973)<sup class="r"><a href="#r-hill">[3]</a></sup>; Jost (2006)<sup class="r"><a href="#r-jost">[4]</a></sup></td></tr>
+      <td>Shannon (1948)<sup class="r"><a href="#r-shannon">[20]</a></sup>; Hill (1973)<sup class="r"><a href="#r-hill">[5]</a></sup>; Jost (2006)<sup class="r"><a href="#r-jost">[7]</a></sup></td></tr>
     <tr><td>Simpson</td><td>D = 1 − Σ p<sub>i</sub><sup>2</sup></td>
       <td>Gini–Simpson index: chance that two papers drawn at random (with replacement) have different labels</td>
-      <td>Simpson (1949)<sup class="r"><a href="#r-simpson">[16]</a></sup></td></tr>
+      <td>Simpson (1949)<sup class="r"><a href="#r-simpson">[21]</a></sup></td></tr>
     <tr><td>Evenness</td><td>J = H / ln S (S ≥ 2)</td><td>Pielou evenness, 0–1; 1 when all labels are equally common</td>
-      <td>Pielou (1966)<sup class="r"><a href="#r-pielou">[10]</a></sup></td></tr>
+      <td>Pielou (1966)<sup class="r"><a href="#r-pielou">[14]</a></sup></td></tr>
     <tr><td>Most common</td><td>arg max p<sub>i</sub></td><td>the commonest label and its share; ties are reported</td><td>–</td></tr>
   </table>
   <p>Richness, effective kinds and the inverse Simpson index are the Hill numbers of order 0, 1 and 2,</p>
@@ -205,7 +208,7 @@
     <mmultiscripts><mi>D</mi><none/><none/><mprescripts/><none/><mn>2</mn></mmultiscripts><mo>=</mo><mn>1</mn><mo>/</mo><mo>∑</mo><msubsup><mi>p</mi><mi>i</mi><mn>2</mn></msubsup>
   </math>
   <p>(<sup>1</sup>D is the limit as q → 1), so S ≥ e<sup>H</sup> ≥ 1/Σp<sub>i</sub><sup>2</sup> always, with equality only when
-    all labels are equally common (Hill, 1973; Jost, 2006)<sup class="r"><a href="#r-hill">[3]</a>,<a href="#r-jost">[4]</a></sup>.
+    all labels are equally common (Hill, 1973; Jost, 2006)<sup class="r"><a href="#r-hill">[5]</a>,<a href="#r-jost">[7]</a></sup>.
     Effective numbers are easier to compare than entropies: doubling e<sup>H</sup> means twice as many equally common kinds.</p>
   <p class="small muted">Simpson's own estimator uses <i>n</i><sub>i</sub>(<i>n</i><sub>i</sub> − 1)/[<i>n</i>(<i>n</i> − 1)] to
     remove small-sample bias. With fractional counts that correction is not defined, so ScholarGauge uses the plug-in form;
@@ -231,15 +234,15 @@
     <msub><mi>d</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mspace width="0.15em"/><msub><mi>p</mi><mi>i</mi></msub><msub><mi>p</mi><mi>j</mi></msub>
   </math>
   <p style="margin:0">p<sub>i</sub> = share of the profile's papers whose primary OpenAlex topic is i. This is Rao's quadratic
-    entropy<sup class="r"><a href="#r-rao">[14]</a></sup> and Stirling's general diversity heuristic
-    Σ<sub>i≠j</sub> d<sub>ij</sub><sup>α</sup>(p<sub>i</sub>p<sub>j</sub>)<sup>β</sup> with α = β = 1<sup class="r"><a href="#r-stirling">[17]</a></sup>,
-    the form used to measure interdisciplinarity in bibliometrics<sup class="r"><a href="#r-porter">[11]</a>,<a href="#r-rafols">[13]</a>,<a href="#r-leydesdorff">[7]</a></sup>.</p>
+    entropy<sup class="r"><a href="#r-rao">[19]</a></sup> and Stirling's general diversity heuristic
+    Σ<sub>i≠j</sub> d<sub>ij</sub><sup>α</sup>(p<sub>i</sub>p<sub>j</sub>)<sup>β</sup> with α = β = 1<sup class="r"><a href="#r-stirling">[22]</a></sup>,
+    the form used to measure interdisciplinarity in bibliometrics<sup class="r"><a href="#r-porter">[16]</a>,<a href="#r-rafols">[18]</a>,<a href="#r-leydesdorff">[10]</a></sup>.</p>
   </div>
 
   <h3>Distance between two topics</h3>
   <p>ScholarGauge measures distance on OpenAlex's four-level classification (4 domains › 26 fields › 252 subfields › 4,516
-    topics)<sup class="r"><a href="#r-oa-topics">[9]</a></sup>, in equal steps up the tree, as in taxonomic distinctness in
-    ecology (Warwick and Clarke, 1995)<sup class="r"><a href="#r-warwick">[23]</a></sup>:</p>
+    topics)<sup class="r"><a href="#r-oa-topics">[13]</a></sup>, in equal steps up the tree, as in taxonomic distinctness in
+    ecology (Warwick and Clarke, 1995)<sup class="r"><a href="#r-warwick">[29]</a></sup>:</p>
   <table class="t">
     <tr><th>The two topics share</th><th class="n">d<sub>ij</sub></th></tr>
     <tr><td>the same subfield</td><td class="n">0.25</td></tr>
@@ -272,24 +275,103 @@
   </math>
   <p>Papers of the same year do not count each other as earlier work. 0% means every later paper stayed in topics already
     worked on; 100% means every later paper opened a new topic. It is a simple descriptive rate in the spirit of studies of
-    topic switching (Zeng et al., 2019)<sup class="r"><a href="#r-zeng">[24]</a></sup> and of tradition versus innovation in
-    research strategies (Foster, Rzhetsky and Evans, 2015)<sup class="r"><a href="#r-foster">[2]</a></sup>, not the measure
+    topic switching (Zeng et al., 2019)<sup class="r"><a href="#r-zeng">[30]</a></sup> and of tradition versus innovation in
+    research strategies (Foster, Rzhetsky and Evans, 2015)<sup class="r"><a href="#r-foster">[3]</a></sup>, not the measure
     of either paper.</p>
   <div class="ex"><b>Example.</b> Topics by year: 2015 {T1}, 2023 {T1}, 2025 {T2}. Later papers: 2 (2023, 2025); new topic:
     1 (T2 in 2025). Exploration = 1/2 = <b>50%</b>.</div>
 </section>
 
+<!-- ======================================================= IMPACT, ROLE, OPEN ACCESS (1.1) -->
+<section id="impact">
+  <h2>6. Impact indices, author role and open access on a profile</h2>
+  <p>The third row of cards on a profile. All of them are computed from the papers ScholarGauge has read on the page, so load
+    all papers ("Show more" on Scholar) before analysing; a profile with papers left unloaded gives smaller values than
+    Scholar's own.</p>
+
+  <h3>Notation</h3>
+  <p><i>c</i><sub>(1)</sub> ≥ <i>c</i><sub>(2)</sub> ≥ … ≥ <i>c</i><sub>(<i>n</i>)</sub> are the citation counts of the
+    profile's <i>n</i> papers in decreasing order (Google Scholar's counts on a Scholar profile, OpenAlex's in the Android app
+    and on OpenAlex author profiles). <i>N</i><sub>j</sub> is the number of authors of paper <i>j</i> (OpenAlex), and the
+    academic age is <i>a</i> = Y − <i>y</i><sub>0</sub> + 1, where Y is the current year and <i>y</i><sub>0</sub> the year of the
+    first paper.</p>
+
+  <table class="t cols">
+    <tr><th>Index</th><th>Definition</th><th>Meaning</th><th>Source</th></tr>
+    <tr><td>h-index</td>
+      <td><math><mi>h</mi><mo>=</mo><mo movablelimits="true">max</mo><mo stretchy="false">{</mo><mi>k</mi><mo>:</mo><msub><mi>c</mi><mrow><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msub><mo>≥</mo><mi>k</mi><mo stretchy="false">}</mo></math></td>
+      <td>h papers have at least h citations each</td>
+      <td>Hirsch (2005)<sup class="r"><a href="#r-hirsch">[6]</a></sup></td></tr>
+    <tr><td>g-index</td>
+      <td><math><mi>g</mi><mo>=</mo><mo movablelimits="true">max</mo><mo stretchy="false">{</mo><mi>k</mi><mo>≤</mo><mi>n</mi><mo>:</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>k</mi></msubsup><msub><mi>c</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msub><mo>≥</mo><msup><mi>k</mi><mn>2</mn></msup><mo stretchy="false">}</mo></math></td>
+      <td>the top g papers together have at least g² citations; g ≥ h, and g gives credit to very highly cited papers</td>
+      <td>Egghe (2006)<sup class="r"><a href="#r-egghe">[2]</a></sup></td></tr>
+    <tr><td>m-quotient</td>
+      <td><math><mi>m</mi><mo>=</mo><mi>h</mi><mo>/</mo><mi>a</mi></math></td>
+      <td>h gained per year of academic age; lets researchers at different career stages be compared</td>
+      <td>Hirsch (2005)<sup class="r"><a href="#r-hirsch">[6]</a></sup></td></tr>
+    <tr><td>hI,norm</td>
+      <td><math><msub><mi>h</mi><mrow><mi>I</mi><mo>,</mo><mtext>norm</mtext></mrow></msub><mo>=</mo><mo movablelimits="true">max</mo><mo stretchy="false">{</mo><mi>k</mi><mo>:</mo><msub><mover><mi>c</mi><mo>~</mo></mover><mrow><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msub><mo>≥</mo><mi>k</mi><mo stretchy="false">}</mo><mo>,</mo><mspace width="0.4em"/><msub><mover><mi>c</mi><mo>~</mo></mover><mi>j</mi></msub><mo>=</mo><msub><mi>c</mi><mi>j</mi></msub><mo>/</mo><msub><mi>N</mi><mi>j</mi></msub></math></td>
+      <td>the h-index after sharing each paper's citations equally among its authors; corrects for field differences in team size</td>
+      <td>Harzing, Alakangas and Adams (2014)<sup class="r"><a href="#r-harzing">[4]</a></sup></td></tr>
+    <tr><td>hIa</td>
+      <td><math><msub><mi>h</mi><mrow><mi>I</mi><mi>a</mi></mrow></msub><mo>=</mo><msub><mi>h</mi><mrow><mi>I</mi><mo>,</mo><mtext>norm</mtext></mrow></msub><mo>/</mo><mi>a</mi></math></td>
+      <td>individual annual h-index: hI,norm per year of academic age; corrects for both team size and career length</td>
+      <td>Harzing, Alakangas and Adams (2014)<sup class="r"><a href="#r-harzing">[4]</a></sup></td></tr>
+  </table>
+  <p class="small muted">The g-index is capped at the number of papers n (Egghe's paper also discusses padding with uncited
+    "fictitious" papers; ScholarGauge does not). hI,norm and hIa use only the papers matched to OpenAlex, where the number of
+    authors is known; the card says how many. Scholar's own h-index and i10-index are shown unchanged in the citations chart
+    below the cards.</p>
+
+  <div class="ex"><b>Worked example.</b> Five papers with 10, 6, 5, 2 and 1 citations, 2, 1, 5, 3 and 1 authors, the first in
+    2015; in 2026 the academic age is a = 12.<br>
+    h: c<sub>(3)</sub> = 5 ≥ 3 but c<sub>(4)</sub> = 2 &lt; 4, so <b>h = 3</b>. g: cumulative sums 10, 16, 21, 23, 24 against
+    k² = 1, 4, 9, 16, 25, so <b>g = 4</b>. m = 3/12 = <b>0.25</b>.<br>
+    Shared citations 5, 6, 1, 0.67, 1, in order 6, 5, 1, 1, 0.67: c̃<sub>(2)</sub> = 5 ≥ 2 but c̃<sub>(3)</sub> = 1 &lt; 3, so
+    <b>hI,norm = 2</b> and hIa = 2/12 = <b>0.17</b>.</div>
+
+  <h3>Citations per year</h3>
+  <p>On a Google Scholar profile the chart and the totals (all years and "since" year) are read from Scholar's own sidebar,
+    unchanged. Scholar draws no bar for a year without citations; ScholarGauge places each bar under the nearest year label, so
+    such a year shows 0.</p>
+
+  <h3>Author role</h3>
+  <p>For each paper matched to OpenAlex, the profile owner's position in OpenAlex's author list (byline order) is classed as
+    <b>sole</b> (one author), <b>first</b>, <b>last</b> or <b>middle</b>. The owner is recognised by the OpenAlex author ids
+    that match the profile name, or by the name itself. The card gives the share of first-authored papers among papers where
+    the owner was found, and the median number of authors per paper.</p>
+  <div class="caveat">Author order does not mean the same everywhere. Alphabetical order is rare in science as a whole
+    (under 4% of papers in 2011) but most common in mathematics, economics (including finance) and high-energy
+    physics (Waltman, 2012)<sup class="r"><a href="#r-waltman12">[26]</a></sup>; there the first and last positions say
+    little about who did most of the work.</div>
+
+  <h3>Open access</h3>
+  <p>OpenAlex gives each work an open-access status<sup class="r"><a href="#r-oa-oa">[11]</a></sup>, following the categories
+    of Piwowar et al. (2018)<sup class="r"><a href="#r-piwowar">[15]</a></sup> with "diamond" added:</p>
+  <table class="t">
+    <tr><th>Status</th><th>Meaning</th></tr>
+    <tr><td>diamond</td><td>in a fully open-access journal that charges authors no fee</td></tr>
+    <tr><td>gold</td><td>in a fully open-access journal</td></tr>
+    <tr><td>hybrid</td><td>free under an open licence in a subscription journal</td></tr>
+    <tr><td>green</td><td>subscription only on the publisher's site, but a free copy is in a repository</td></tr>
+    <tr><td>bronze</td><td>free to read on the publisher's site, without an identifiable open licence</td></tr>
+    <tr><td>closed</td><td>everything else</td></tr>
+  </table>
+  <p>The card shows the share of matched papers that are not closed, and the count of each kind.</p>
+</section>
+
 <!-- ======================================================= DATA -->
 <section id="data">
-  <h2>6. Data behind the indices</h2>
+  <h2>7. Data behind the indices</h2>
   <ul>
     <li><b>Topics</b>: OpenAlex assigns each work up to three topics with a deep-learning classifier that reads the title,
       abstract, citations and journal name; the highest-scoring one is the primary topic used here. About 12% of works get no
-      topic because they lack text. The classification was developed with CWTS, Leiden University<sup class="r"><a href="#r-oa-topics">[9]</a></sup>.</li>
+      topic because they lack text. The classification was developed with CWTS, Leiden University<sup class="r"><a href="#r-oa-topics">[13]</a></sup>.</li>
     <li><b>Keywords</b>: OpenAlex keywords with score ≥ 0.4, lower-cased.</li>
     <li><b>UN SDGs</b>: since October 2026 OpenAlex tags goals with a classifier it trained and tested itself; a goal appears
       at a score of 0.4 or above. The score is a confidence, not a probability: OpenAlex reports tags scored 0.4–0.5 right about
-      a quarter of the time, 0.5–0.8 about half the time, 0.8–0.9 about 7 in 10 and above 0.9 about 8 in 10<sup class="r"><a href="#r-oa-sdg">[8]</a></sup>.
+      a quarter of the time, 0.5–0.8 about half the time, 0.8–0.9 about 7 in 10 and above 0.9 about 8 in 10<sup class="r"><a href="#r-oa-sdg">[12]</a></sup>.
       ScholarGauge shows goals at ≥ 0.5 by default (Options). Scopus uses a different SDG mapping, so counts will not agree.</li>
     <li><b>Counts for the novelty index</b>: OpenAlex <code>search</code> results (quoted phrases joined with AND / OR);
       <code>per_page=1</code> returns only the total.</li>
@@ -302,38 +384,46 @@
     <li><b>Indexed in Web of Science</b> (optional, with your own free Clarivate key): each paper's DOI is looked up in the Web of
       Science Core Collection through Clarivate's Web of Science Starter API; papers without a DOI are not checked, and the
       API does not report which index (SCIE, SSCI, AHCI, ESCI…) a record belongs to.</li>
-    <li>OpenAlex itself is described by Priem, Piwowar and Orr (2022)<sup class="r"><a href="#r-priem">[12]</a></sup>.</li>
+    <li>OpenAlex itself is described by Priem, Piwowar and Orr (2022)<sup class="r"><a href="#r-priem">[17]</a></sup>.</li>
   </ul>
 </section>
 
 <!-- ======================================================= CITE -->
 <section id="cite">
-  <h2>7. How to cite these indices in a paper</h2>
+  <h2>8. How to cite these indices in a paper</h2>
   <p>Report the formula, the data source and the date of the counts, and cite the method papers. Suggested wording:</p>
   <p class="cite">"Novelty was measured with the Poisson gap index G = 100·P(X &gt; O), X ~ Poisson(E), where O is the number of
     OpenAlex works matching both ideas within the context and E = n(A∧C)·n(B∧C)/n(C) is the number expected under independence
-    (cf. van Eck and Waltman, 2009; Lee, Walsh and Wang, 2015), computed with ScholarGauge 1.0.0 (KStats Lab, 2026) from
+    (cf. van Eck and Waltman, 2009; Lee, Walsh and Wang, 2015), computed with ScholarGauge 1.1.0 (KStats Lab, 2026) from
     OpenAlex counts retrieved on &lt;date&gt;."</p>
   <p class="cite">"Research variety was summarised by the effective number of topics e<sup>H</sup> (Hill, 1973; Jost, 2006), the
     Gini–Simpson index (Simpson, 1949) and Pielou's evenness (Pielou, 1966) over OpenAlex topics with fractional counting, and
     interdisciplinarity by Rao–Stirling diversity (Rao, 1982; Stirling, 2007) with taxonomic distances on the OpenAlex topic
     hierarchy."</p>
+  <p class="cite">"Citation impact was summarised by the h-index (Hirsch, 2005), the g-index (Egghe, 2006), the m-quotient
+    h/a and the author-normalised hI,norm and hIa (Harzing, Alakangas and Adams, 2014), with academic age a counted from the
+    year of the first paper, computed with ScholarGauge 1.1.0 from Google Scholar citation counts retrieved on &lt;date&gt;."</p>
 </section>
 
 <!-- ======================================================= REFERENCES -->
 <section id="refs">
-  <h2>8. References</h2>
+  <h2>9. References</h2>
   <ol class="refs">
     <li id="r-callon">Callon, M., Courtial, J.-P., Turner, W. A., and Bauin, S. (1983). From translations to problematic networks: An introduction to co-word analysis. <i>Social Science Information</i>, 22(2), 191–235. <a href="https://doi.org/10.1177/053901883022002003" target="_blank" rel="noopener">doi:10.1177/053901883022002003</a></li>
+    <li id="r-egghe">Egghe, L. (2006). Theory and practise of the g-index. <i>Scientometrics</i>, 69(1), 131–152. <a href="https://doi.org/10.1007/s11192-006-0144-7" target="_blank" rel="noopener">doi:10.1007/s11192-006-0144-7</a></li>
     <li id="r-foster">Foster, J. G., Rzhetsky, A., and Evans, J. A. (2015). Tradition and innovation in scientists' research strategies. <i>American Sociological Review</i>, 80(5), 875–908. <a href="https://doi.org/10.1177/0003122415601618" target="_blank" rel="noopener">doi:10.1177/0003122415601618</a></li>
+    <li id="r-harzing">Harzing, A.-W., Alakangas, S., and Adams, D. (2014). hIa: An individual annual h-index to accommodate disciplinary and career length differences. <i>Scientometrics</i>, 99(3), 811–821. <a href="https://doi.org/10.1007/s11192-013-1208-0" target="_blank" rel="noopener">doi:10.1007/s11192-013-1208-0</a></li>
     <li id="r-hill">Hill, M. O. (1973). Diversity and evenness: A unifying notation and its consequences. <i>Ecology</i>, 54(2), 427–432. <a href="https://doi.org/10.2307/1934352" target="_blank" rel="noopener">doi:10.2307/1934352</a></li>
+    <li id="r-hirsch">Hirsch, J. E. (2005). An index to quantify an individual's scientific research output. <i>Proceedings of the National Academy of Sciences</i>, 102(46), 16569–16572. <a href="https://doi.org/10.1073/pnas.0507655102" target="_blank" rel="noopener">doi:10.1073/pnas.0507655102</a></li>
     <li id="r-jost">Jost, L. (2006). Entropy and diversity. <i>Oikos</i>, 113(2), 363–375. <a href="https://doi.org/10.1111/j.2006.0030-1299.14714.x" target="_blank" rel="noopener">doi:10.1111/j.2006.0030-1299.14714.x</a></li>
     <li id="r-lecam">Le Cam, L. (1960). An approximation theorem for the Poisson binomial distribution. <i>Pacific Journal of Mathematics</i>, 10(4), 1181–1197. <a href="https://doi.org/10.2140/pjm.1960.10.1181" target="_blank" rel="noopener">doi:10.2140/pjm.1960.10.1181</a></li>
     <li id="r-lee">Lee, Y.-N., Walsh, J. P., and Wang, J. (2015). Creativity in scientific teams: Unpacking novelty and impact. <i>Research Policy</i>, 44(3), 684–697. <a href="https://doi.org/10.1016/j.respol.2014.10.007" target="_blank" rel="noopener">doi:10.1016/j.respol.2014.10.007</a></li>
     <li id="r-leydesdorff">Leydesdorff, L., Wagner, C. S., and Bornmann, L. (2019). Interdisciplinarity as diversity in citation patterns among journals: Rao-Stirling diversity, relative variety, and the Gini coefficient. <i>Journal of Informetrics</i>, 13(1), 255–269. <a href="https://doi.org/10.1016/j.joi.2018.12.006" target="_blank" rel="noopener">doi:10.1016/j.joi.2018.12.006</a></li>
+    <li id="r-oa-oa">OpenAlex (2026). Open access. OpenAlex help pages. <a href="https://help.openalex.org/data/works/open-access/" target="_blank" rel="noopener">help.openalex.org/data/works/open-access</a> (accessed 13 November 2026).</li>
     <li id="r-oa-sdg">OpenAlex (2026). Sustainable Development Goals. OpenAlex help pages. <a href="https://help.openalex.org/data/sdgs/" target="_blank" rel="noopener">help.openalex.org/data/sdgs</a> (accessed 28 October 2026).</li>
     <li id="r-oa-topics">OpenAlex (2026). Topics. OpenAlex help pages. <a href="https://help.openalex.org/data/topics/" target="_blank" rel="noopener">help.openalex.org/data/topics</a> (accessed 28 October 2026).</li>
     <li id="r-pielou">Pielou, E. C. (1966). The measurement of diversity in different types of biological collections. <i>Journal of Theoretical Biology</i>, 13, 131–144. <a href="https://doi.org/10.1016/0022-5193(66)90013-0" target="_blank" rel="noopener">doi:10.1016/0022-5193(66)90013-0</a></li>
+    <li id="r-piwowar">Piwowar, H., Priem, J., Larivière, V., Alperin, J. P., Matthias, L., Norlander, B., Farley, A., West, J., and Haustein, S. (2018). The state of OA: A large-scale analysis of the prevalence and impact of Open Access articles. <i>PeerJ</i>, 6, e4375. <a href="https://doi.org/10.7717/peerj.4375" target="_blank" rel="noopener">doi:10.7717/peerj.4375</a></li>
     <li id="r-porter">Porter, A. L., and Rafols, I. (2009). Is science becoming more interdisciplinary? Measuring and mapping six research fields over time. <i>Scientometrics</i>, 81(3), 719–745. <a href="https://doi.org/10.1007/s11192-008-2197-2" target="_blank" rel="noopener">doi:10.1007/s11192-008-2197-2</a></li>
     <li id="r-priem">Priem, J., Piwowar, H., and Orr, R. (2022). OpenAlex: A fully-open index of scholarly works, authors, venues, institutions, and concepts. arXiv preprint. <a href="https://arxiv.org/abs/2205.01833" target="_blank" rel="noopener">arXiv:2205.01833</a></li>
     <li id="r-rafols">Rafols, I., and Meyer, M. (2010). Diversity and network coherence as indicators of interdisciplinarity: Case studies in bionanoscience. <i>Scientometrics</i>, 82(2), 263–287. <a href="https://doi.org/10.1007/s11192-009-0041-y" target="_blank" rel="noopener">doi:10.1007/s11192-009-0041-y</a></li>
@@ -344,13 +434,14 @@
     <li id="r-swanson">Swanson, D. R. (1986). Fish oil, Raynaud's syndrome, and undiscovered public knowledge. <i>Perspectives in Biology and Medicine</i>, 30(1), 7–18. <a href="https://doi.org/10.1353/pbm.1986.0087" target="_blank" rel="noopener">doi:10.1353/pbm.1986.0087</a></li>
     <li id="r-uzzi">Uzzi, B., Mukherjee, S., Stringer, M., and Jones, B. (2013). Atypical combinations and scientific impact. <i>Science</i>, 342(6157), 468–472. <a href="https://doi.org/10.1126/science.1240474" target="_blank" rel="noopener">doi:10.1126/science.1240474</a></li>
     <li id="r-vaneck">van Eck, N. J., and Waltman, L. (2009). How to normalize cooccurrence data? An analysis of some well-known similarity measures. <i>Journal of the American Society for Information Science and Technology</i>, 60(8), 1635–1651. <a href="https://doi.org/10.1002/asi.21075" target="_blank" rel="noopener">doi:10.1002/asi.21075</a></li>
+    <li id="r-waltman12">Waltman, L. (2012). An empirical analysis of the use of alphabetical authorship in scientific publishing. <i>Journal of Informetrics</i>, 6(4), 700–711. <a href="https://doi.org/10.1016/j.joi.2012.07.008" target="_blank" rel="noopener">doi:10.1016/j.joi.2012.07.008</a></li>
     <li id="r-waltman">Waltman, L., and van Eck, N. J. (2015). Field-normalized citation impact indicators and the choice of an appropriate counting method. <i>Journal of Informetrics</i>, 9(4), 872–894. <a href="https://doi.org/10.1016/j.joi.2015.08.001" target="_blank" rel="noopener">doi:10.1016/j.joi.2015.08.001</a></li>
     <li id="r-wang">Wang, J., Veugelers, R., and Stephan, P. (2017). Bias against novelty in science: A cautionary tale for users of bibliometric indicators. <i>Research Policy</i>, 46(8), 1416–1436. <a href="https://doi.org/10.1016/j.respol.2017.06.006" target="_blank" rel="noopener">doi:10.1016/j.respol.2017.06.006</a></li>
     <li id="r-warwick">Warwick, R. M., and Clarke, K. R. (1995). New 'biodiversity' measures reveal a decrease in taxonomic distinctness with increasing stress. <i>Marine Ecology Progress Series</i>, 129, 301–305. <a href="https://doi.org/10.3354/meps129301" target="_blank" rel="noopener">doi:10.3354/meps129301</a></li>
     <li id="r-zeng">Zeng, A., Shen, Z., Zhou, J., Fan, Y., Di, Z., Wang, Y., Stanley, H. E., and Havlin, S. (2019). Increasing trend of scientists to switch between topics. <i>Nature Communications</i>, 10, 3439. <a href="https://doi.org/10.1038/s41467-019-11401-8" target="_blank" rel="noopener">doi:10.1038/s41467-019-11401-8</a></li>
   </ol>
   <p class="small muted">Every reference was checked against its Crossref record (DOI) or, for web pages and the arXiv preprint,
-    against the page itself on 28 October 2026.</p>
+    against the page itself: on 28 October 2026, and the references added in version 1.1 on 13 November 2026.</p>
 </section>
 </body>
 </html>

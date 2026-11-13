@@ -1,0 +1,36 @@
+# KStats Lab website: only public web pages belong in this folder.
+# Git refuses to upload anything matching these lines, even if copied here by mistake.
+
+# Signing keys and secrets
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+password*.txt
+*secret*
+.env
+.dev.vars
+wrangler.toml
+.wrangler/
+
+# App packages and archives
+*.apk
+*.aab
+*.zip
+*.7z
+*.rar
+
+# Spreadsheets and documents (student lists, accounts, notes).
+# If you ever want to publish one on purpose, delete its line here first.
+*.xlsx
+*.xls
+*.csv
+*.docx
+
+# Build folders and system files
+node_modules/
+Thumbs.db
+desktop.ini
+.DS_Store

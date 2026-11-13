@@ -16,11 +16,13 @@
     th, td { text-align: left; border-bottom: 1px solid #e6e4de; padding: 6px 8px; vertical-align: top; }
     th { color: #52514e; font-weight: 600; }
     a { color: #1c5cab; }
+    .kl-top { margin: 0 0 14px; font-size: 14px; }
   </style>
 </head>
 <body>
+  <p class="kl-top"><a href="../">KStats Lab</a> › <a href="./">ScholarGauge</a></p>
   <h1>ScholarGauge – privacy policy</h1>
-  <p class="muted">Effective 28 October 2026, updated 1 November 2026 · Developer: KStats Lab (kstatslab@gmail.com)</p>
+  <p class="muted">Effective 28 October 2026, updated 13 November 2026 (version 1.1) · Developer: KStats Lab (kstatslab@gmail.com)</p>
 
   <p><b>ScholarGauge has no server and collects nothing about you.</b> It is a browser extension that adds journal
     quartiles, citation facts and study-design tags to Google Scholar™ pages.</p>
@@ -30,8 +32,11 @@
     <i>Agree and turn on</i>. You can switch look-ups off at any time in its Options.</p>
 
   <h2>What the extension reads</h2>
-  <p>Only Google Scholar pages (search results and profile pages): paper titles, authors, journal names, years and
-    citation counts as shown on the page.</p>
+  <p>Google Scholar pages (search results and profile pages): paper titles, authors, journal names, years and
+    citation counts as shown on the page, and on a profile the name, affiliation and Scholar's citation totals and
+    citations-per-year chart.</p>
+  <p>On other websites it reads nothing by itself. Only when you select text or right-click a DOI link and choose
+    <i>Check with ScholarGauge</i> does it receive that text or link from the browser, to look the paper up.</p>
 
   <h2>What it sends, and to whom</h2>
   <table>
@@ -39,14 +44,15 @@
     <tbody>
       <tr><td>Paper titles and first-author surnames from the Scholar page</td><td>Crossref (api.crossref.org)</td><td>Find each paper's DOI</td></tr>
       <tr><td>DOIs of those papers</td><td>OpenAlex (api.openalex.org)</td><td>Citations, field percentile, retraction status, authors, abstract</td></tr>
-      <tr><td>Words you type into the Research lab (Topic map, Has it been done?)</td><td>OpenAlex (api.openalex.org)</td><td>Search papers on a topic</td></tr>
+      <tr><td>Words you type into the Research lab (Topic map, Has it been done?), and a DOI or title you type into its Paper tab</td><td>OpenAlex (api.openalex.org); a title also to Crossref</td><td>Search papers on a topic; find one paper</td></tr>
+      <tr><td>Text you select, or a DOI link you right-click, and send with <i>Check with ScholarGauge</i></td><td>Crossref (a title) and OpenAlex (a DOI)</td><td>Find that paper</td></tr>
       <tr><td>Your e-mail address, only if you enter one</td><td>Crossref (api.crossref.org)</td><td>Faster service ("polite pool")</td></tr>
       <tr><td>Your OpenAlex API key, only if you enter one</td><td>OpenAlex (api.openalex.org)</td><td>Larger daily allowance</td></tr>
       <tr><td>DOIs of a profile's papers and your Web of Science key — only if you add that key in Options</td><td>Clarivate (api.clarivate.com)</td><td>Count the papers in the Web of Science Core Collection</td></tr>
     </tbody>
   </table>
   <p>In the Firefox edition, Firefox itself asks at installation for permission to send website content and search terms
-    (the first three rows), and asks again before an e-mail address or key you type in is used; you can change these choices
+    (the first four rows), and asks again before an e-mail address or key you type in is used; you can change these choices
     in Firefox's add-on settings.</p>
   <p>All requests use HTTPS. Nothing is sent to the developer or to anyone else. There is no analytics, advertising,
     tracking, profiling, or sale or transfer of data.</p>
@@ -56,6 +62,11 @@
     (title → DOI for 4 months, OpenAlex records for 2 weeks, Web of Science answers for 30 days, searches for 1 day) and a count of today's requests are
     stored only in your browser's extension storage. Remove them with <i>Options → Clear cache</i>, or by removing the
     extension.</p>
+  <p>Profiles you choose to save (with <i>Save profile</i> or <i>Compare</i>): the name, affiliation and Scholar address of the
+    profile, the numbers shown on its cards and its list of papers (title, year, citations, journal and quartile). The last profile
+    you open as a one-page report is kept the same way. They stay in your browser, are never sent anywhere, and are removed
+    with <i>Delete</i> on the Saved profiles page or by removing the extension. The Journal tab of the Research lab uses only
+    the journal data built into the extension; nothing you type there is sent.</p>
 
   <h2>Third-party services</h2>
   <p>Crossref and OpenAlex are public scholarly databases with their own terms and privacy policies. Clarivate's Web of Science
@@ -72,6 +83,6 @@
   <p>Any change to these practices will be described here with a new date, and shown in the extension, before it takes effect.</p>
 
   <h2>Contact</h2>
-  <p><a href="../">KStats Lab</a> · kstatslab@gmail.com</p>
+  <p><a href="../">KStats Lab</a> · <a href="mailto:kstatslab@gmail.com">kstatslab@gmail.com</a></p>
 </body>
 </html>
