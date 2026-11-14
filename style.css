@@ -121,3 +121,12 @@ h2 + .sub + h3.group { margin-top: 6px; }
 .note-box p { margin: 0 0 6px; }
 .note-box p:last-child { margin-bottom: 0; }
 .cards.pair { grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); }
+
+/* Direct APK download (Dawa aur Sehat) */
+.download-box { background: var(--soft); border: 1px solid #cfe5df; border-radius: 18px; padding: 18px 22px; margin: 0 0 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+.download-box p { margin: 0; }
+.btn.big { min-height: 52px; padding: 12px 22px; font-size: 17px; }
+.box .steps { padding-left: 22px; }
+details.check { margin-top: 16px; background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 12px 18px; max-width: 820px; }
+details.check summary { cursor: pointer; font-weight: 600; }
+details.check code { word-break: break-all; font-size: 13px; }

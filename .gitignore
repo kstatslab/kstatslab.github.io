@@ -18,6 +18,9 @@ wrangler.toml
 # App packages and archives
 *.apk
 *.aab
+# Exception: the public Dawa aur Sehat APK offered on its download page.
+# Only files named like this, inside dawa-aur-sehat/, may be uploaded.
+!dawa-aur-sehat/dawa-aur-sehat-*.apk
 *.zip
 *.7z
 *.rar
